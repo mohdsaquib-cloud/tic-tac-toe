@@ -10,6 +10,12 @@ class App extends Component {
     if (this.calculateWinner(squares) || squares[i]) return;
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({squares: squares,xIsNext: !this.state.xIsNext,});
+  }
+  handleClear=()=>{
+    this.setState({
+      squares:Array(9).fill(null),
+      xIsNext: true,
+    })
   }    
   calculateWinner=(squares) =>{
     const lines = [
@@ -32,9 +38,10 @@ class App extends Component {
         <div className="mainscreen bg-dark">
         <div className="status">{status}</div>  
         {           
-          sq.map(s=> <button value={this.state.squares[s]} onClick={() => this.handleClick(s)}>{this.state.squares[s]}</button>)
-        }                             
-        </div>                       
+          sq.map(s=> <button className="button" value={this.state.squares[s]} onClick={() => this.handleClick(s)}>{this.state.squares[s]}</button>)
+        }                       
+        <button className="playagain" onClick={this.handleClear}>Play Again</button>                                
+        </div>
     );
   }
 }
