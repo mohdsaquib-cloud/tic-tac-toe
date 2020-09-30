@@ -1,0 +1,21 @@
+.mainscreen{  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:300px;
+  text-align: center; 
+}
+button{  
+  height:100px;
+  width:100px;
+  vertical-align: top;
+}
+.btn {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);   
+}
+.status{
+  color:white;
+  font-size: 30px;
+}
